@@ -940,7 +940,7 @@ compatibility but it will be removed before a 1.0.0 release." }
   (if (map? col)
     (let [[k v] (first col)]
       (str (as-sql-name entities k) " AS " (as-sql-name entities v)))
-    (as-sql-name entities col)))
+    (str \` (as-sql-name entities col) \`)))
 
 (defn- insert-multi-row-sql
   "Given a table and a list of columns, followed by a list of column value sequences,
